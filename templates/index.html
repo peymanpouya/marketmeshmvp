@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MarketMesh Fit Score</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class='container mt-5'>
+        <h1>MarketMesh Fit Score Calculator</h1>
+        <p>Enter market data to get your Fit Score!</p>
+        {% if error %}
+            <p class='text-danger'>{{ error }}</p>
+        {% endif %}
+        <form method='POST'>
+            <div class='mb-3'>
+                <label>Country</label>
+                <input type='text' name='country' class='form-control' required>
+            </div>
+            <div class='mb-3'>
+                <label>Market Size ($)</label>
+                <input type='number' name='market_size' class='form-control' required>
+            </div>
+            <div class='mb-3'>
+                <label>Competition (0-1)</label>
+                <input type='number' step='0.1' name='competition' class='form-control' required>
+            </div>
+            <div class='mb-3'>
+                <label>Risk (0-1)</label>
+                <input type='number' step='0.1' name='risk' class='form-control' required>
+            </div>
+            <button type='submit' class='btn btn-primary'>Calculate Fit Score</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fit Score Result</title>
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class='container mt-5'>
+        <h1>Your Fit Score for {{ country }}</h1>
+        <p class='display-4'>Score: {{ score | round(2) }}</p>
+        <p>This score reflects your market's potential, saving you - in failed entries!</p>
+        <a href='/' class='btn btn-primary'>Try Another</a>
+    </div>
+</body>
+</html>
