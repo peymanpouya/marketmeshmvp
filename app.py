@@ -16,4 +16,6 @@ def home():
             return render_template('index.html', error='Please enter valid numbers.')
     return render_template('index.html')
 if __name__ == '__main__':
-    app.run(debug=True)
+    from werkzeug.serving import run_simple
+    app.run = lambda: run_simple('0.0.0.0', 5000, app)
+    app.run()
