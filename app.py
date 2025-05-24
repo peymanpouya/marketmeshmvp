@@ -29,7 +29,7 @@ def home():
             risk = float(request.form['risk'])
             if market_size < 0 or competition < 0 or risk < 0:
                 return render_template('index.html', error='Inputs must be non-negative.')
-            score = (market_size / 1000000 * 50) - (competition * 30) - (risk * 20)
+            score = (market_size / 1000000000 * 50) - (competition * 30) - (risk * 20)
             score = max(0, min(100, score))
             return render_template('result.html', score=score, country=request.form['country'])
         except ValueError:
