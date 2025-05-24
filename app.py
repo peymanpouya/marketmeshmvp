@@ -17,6 +17,7 @@ from flask import jsonify
 #     app.run(debug=True)
 app = Flask(__name__, template_folder='templates')
 @app.route('/', methods=['GET', 'POST'])
+@app.route('/fit-score', methods=['POST'])
 def home():
     if request.method == 'POST':
         try:
