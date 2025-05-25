@@ -2,15 +2,15 @@ import os
 from flask import Flask, request, render_template
 from flask import jsonify
 
-app = Flask(__name__)
-@app.route('/fit-score', methods=['POST'])
-def receive_fit_score():
-    data = request.get_json()
-    return jsonify({"status": "success", "fit_score": data['fit_score']})
+# app = Flask(__name__)
+# @app.route('/fit-score', methods=['POST'])
+# def receive_fit_score():
+#     data = request.get_json()
+#     return jsonify({"status": "success", "fit_score": data['fit_score']})
 
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+# if __name__ == '__main__':
+#     port = int(os.environ.get('PORT', 5000))
+#     app.run(host='0.0.0.0', port=port)
 # app = Flask(__name__)
 # @app.route('/', methods=['POST'])  # Check if this is correct
 # def receive_fit_score():
@@ -21,14 +21,14 @@ if __name__ == '__main__':
 #     # Calculate or store score
 #     return jsonify({"fit_score": 25.7})  # Example response
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
 app = Flask(__name__, template_folder='templates')
-# @app.route('/', methods=['GET', 'POST'])
-# @app.route('/fit-score', methods=['POST'])
-# def receive_fit_score():
-#     data = request.get_json()
-#     return jsonify({"status": "success", "fit_score": data['fit_score']})
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/fit-score', methods=['POST'])
+def receive_fit_score():
+    data = request.get_json()
+    return jsonify({"status": "success", "fit_score": data['fit_score']})
 def home():
     if request.method == 'POST':
         try:
